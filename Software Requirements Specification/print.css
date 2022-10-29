@@ -1,0 +1,67 @@
+
+  
+  page[size="A4"] {
+    background: white;
+    width: 21cm;
+    height: 29.7cm;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  }
+
+  @media print {
+    body, page[size="A4"] {
+      margin: 3cm;
+      box-shadow: 
+      0;
+    }
+    a::after{
+        content: " (" attr(href) ") ";
+      }
+      #toc_container, #toc_container ul {
+        list-style-type: none;
+        font-size: 10pt;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    }
+    
+    h1{
+        font-family: Times;
+        font-size: 28pt;
+        font-style: bold;
+    }
+    
+    .leftSide{
+        text-align: right;
+        padding: 8cm 0;
+    }
+    
+    .leftSide p {
+        font-family: Times;
+        font-size: 18pt;
+    }
+    
+    h3,h4{
+        font-family: Times;
+        font-size: 15pt;
+        font-style: bold;
+    }
+
+    h5{
+      font-family: Times;
+        font-size: 12pt;
+        font-style: bold;
+    }
+    p,li,ul,ol {
+        font-family: Arial;
+        font-size: 12pt;
+        margin-top: 2pt;
+        padding-left: 1em;
+    }
+  }
+
+img{
+    max-width:100%;
+    height:auto;
+}

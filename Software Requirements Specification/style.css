@@ -1,0 +1,10 @@
+body {
+    max-width: 80%;
+    height: 80vh;
+    padding: 0 20rem;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Software Requirements Specification for Grasp </title>
+    <link rel="stylesheet" href="print.css"  media="print">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" media="screen">
+    
+</head>
+  <body>
+    <div class="leftSide">
+    <h1>Software Requirements Specification</h1>
+<h1>for</h1>
+<h1>Grasp</h1>
+<p>Version 1.0 approved</strong></p>
+<p>Prepared by Alian Ahmed Ferdous 2012869042</p>
+<p>CSE327 Section 2</p>
+<p>28/10/2022</p>
+</div>
+    <div id="toc_container">
+        <p class="toc_title">Contents</p>
+        <ul class="toc_list">
+                <li>1.Introduction</li>
+                <ul>
+                <li>1.1 Purpose</li>
+                <li>1.2 Document Conventions</li>
+                <li>1.3 Intended Audience and Reading Suggestions</li>
+                <li>1.4 Product Scope</li>
+                <li>1.5 References</li>
+            </ul>
+                <li>2.Overall Description</li>
+                <ul>
+                <li>2.1 Product Perspective</li>
+                <li>2.2 Product Functions</li>
+                <li>2.3 User Classes and Characteristics</li>
+                <li>2.4 Operating Environment</li>
+                <li>2.5 Design and Implementation Constraints</li>
+                <li>2.6 User Documentation</li>
+                <li>2.7 Assumptions and Dependencies</li>
+            </ul>
+                <li>3.External Interface Requirements</li>
+                <ul>
+                <li>3.1 User Interfaces</li>
+                <li>3.2 Hardware Interfaces</li>
+                <li>3.3 Software Interfaces</li>
+                <li>3.4 Communications Interfaces</li>
+                </ul>
+                <li>4.System Features</li>
+                <ul>
+                <li>4.1 Create Cohorts</li>
+                <li>4.2 Assign reading assignment to cohort</li>
+                <li>4.3 Assign comprehension test with reading assignment</li>
+                <li>4.4 Edit/Delete reading assignment</li>
+                <li>4.5 Edit comprehension test</li>
+                <li>4.6 View Report of a student and cohort</li>
+                <li>4.7 Complete the reading assignment</li>
+                <li>4.8 Complete the comprehension test if given with the reading assignment</li>
+                </ul>
+                <li>5.Other Nonfunctional Requirements</li>
+                <ul>
+                <li>5.1 Performance Requirements</li>
+                <li>5.2 Safety Requirements</li>
+                <li>5.3 Security Requirements</li>
+                <li>5.4 Software Quality Attributes</li>
+                </ul>
+        </ul>
+        </div>
+    <div class="A4">
+	<h3>1.	Introduction</h3>
+<h4>1.1	Purpose</h4>
+<p>This document goes an in-depth description of the functionality, operations, and constraints under which, 
+    this software, Grasp, will perform, the platform on which will operate, 
+    and its interface and interaction with its different users, in order to fulfil its intended purpose.
+    This document is for the developers of this software.</p>
+
+<h4>1.2 Document Conventions</h4>
+<p>The IEEE srs standard was followed.</p>
+
+<h4>1.3 Intended Audience and Reading Suggestions</h4>
+<p>
+    This document’s primary intended audience is the software developers. 
+    The different users (Teachers and students) can read the introduction and system features for better understanding.
+</p>
+<h4>1.4 Product Scope</h4>
+<p>
+    Grasp is a reading evaluation software that aids teachers through active monitoring of students while 
+    they read the assigned work and grading their attentiveness for the teacher’s assessment. 
+    It also supports optional comprehension tests the teacher can assign along with the reading assignment, 
+    with each question paired with a portion of the reading assignment. 
+    The question can be of three types: where students type answers, students, answer through audio recording and MCQs. 
+    The teacher can assign answers to the questions, using which Grasp can check the answers of the students. 
+    All the scores of attentiveness and comprehension tests will be available to the teacher in the report section.
+</p>
+
+<h4>1.5 References</h4>
+<p>IEEE Template for System Requirement Specification Documents:</p>
+<p><a href="https://goo.gl/nsUFwy">https://goo.gl/nsUFwy</a></p>
+<p><br></p>
+<p>Sitting position and posture infront of a laptop or desktop:</p>
+<p><a href="https://posturenet.app/blog/best-sitting-posture-computer/">https://posturenet.app/blog/best-sitting-posture-computer/</a></p>
+
+<h3>2.	Overall Description</h3>
+<h4>2.1 Product Perspective</h4>
+<p>
+    Grasp is a self-contained software which helps teachers easily observe how students are 
+    engaging with the reading material and optionally check their comprehension via tests.
+</p>
+
+<h4>2.2 Product Functions</h4>
+<p>
+    Teacher:
+
+    <ul>
+        <li>Create a cohort of students based on email</li>
+
+        <li>Create cohorts within a cohort</li>
+
+<li>Assign Reading assignments to cohorts by uploading pdf</li>
+
+<li>Option to assign tests with the reading assignments with each question assigned to a part of the reading assignment.</li>
+
+<li>Edit or delete assignments and/or tests</li>
+
+<li>View report of the performance of the reading assignments and optional test of each student and each cohort</li></ul>
+
+Student:
+
+<ul><li>Complete the assigned reading assignment</li>
+
+<li>Complete the optional test which might be assigned with the reading assignment</li></ul>
+</p>
+
+<h4>2.3 User Classes and Characteristics</h4>
+<p>
+    <ul>
+    <li>Teacher: can create a cohort, assign reading assignments, assign optional tests with reading assignments, and view reports of student performance.</li>
+    <li>Student: Can complete assignments and optional tests.</li>
+    </ul>
+</p>
+
+<h4>2.4 Operating Environment</h4>
+<p>
+    It is a web-based application, thus, any latest internet browser such as chrome or firefox is required to run the application. 
+    The companion android application requires a device that can run android 7.0 or above.
+</p>
+<h4>2.5 Design and Implementation Constraints</h4>
+<p>
+    <ul>
+        <li>
+            The web application must be accessible through latest internet browsers and the companion mobile application must run on devices with Android 7.0 os.
+        </li>
+        <li>The website frontend will be build using react js and the frontend of the companion mobile application using java. The backend will us laravel php and the database will be a relational database, specifically Mysql. Everything will be hosted on railway. The backend and the frontend will communicate via api calls.</li>
+        <li>Functions such as image comparing, text comparing, speech to text, and converting pdf contents to workable text will be implemented by using external api and libraries.</li>
+        <li>The pdf uploaded for the reading assignment must be in pdf format with only one column and no images. The student must not be able to download the pdf.</li>
+        <li>The user authentication will be handled via Google OAuth. Incase of student, an additional photo will also be collect via webcam on sign up. And everytime a student logs in, a new picture will be taken via webcam to compare with the previously collected picture to verify the student’s identity.</li>
+        <li>In all occasion where the student must appear infornt of the webcam s/he must sit up straight facing, with their chest and face parallel to the camera and fully in frame of the camera.</li>
+        <li>The companion android application will only send notifications of assignment start date and before end date. And the teachers will only be able to view report.</li>
+    </ul>
+</p>
+
+<h4>2.6 User Documentation</h4>
+<p>A user manual will be provided with the software one for the teachers and another for the students, on how to use the software.</p>
+
+<h4>2.7 Assumptions and Dependencies</h4>
+<p>
+    Teachers and students are assumed to be internet literate, with experience of interacting with modern websites. 
+    The students and teachers must also have one of the latest web browsers (chrome or firefox) on their device and an android device with android 7.0 os.
+</p>
+
+<h3>3.	External Interface Requirements</h3>
+<h4>3.1 User Interfaces</h4>
+<p>
+    There will be a login/sign-up screen. If it's the teacher they will see a list of cohorts with a button to create new cohorts. If no cohort exists only the created cohort will appear. upon clicking on a cohort a list of reading assignments will appear with a button to edit or create reading assignments. If there are no reading assignments only create reading assignments will appear. On clicking the edit or create reading assignment button forms with relevant fields will appear. Create test button will be available in create reading assignment form. 
+    Upon clicking Create test button relevant form with relevant fields will appear through which a test can be created. 
+    There is a report button next to each assignment upon clicking teachers can see the report of the assignment and test. <br>
+
+Students will see a list of cohorts they are in. Upon clicking a cohort they will see a list 
+of assignments which they can complete and also complete tests if provided by the teacher. <br>
+
+Here are some examples of what it’ll roughly look like:
+<img src="images/image1.png">
+<img src="images/image2.png">
+<img src="images/image3.png">
+<img src="images/image4.png">
+</p>
+
+<h4>3.2 Hardware Interfaces</h4>
+<p>
+    A laptop or desktop that can support the latest web browsers (chrome or firefox) along with a 
+    webcam mounted as close to the top of the monitor as possible and 
+    in front of the eyes, and a device that runs android 7.0 os. 
+    All devices must be able to connect to the internet.
+</p>
+
+<h4>3.3 Software Interfaces</h4>
+<p>
+    The database used will be MySQL. Any laptop/desktop operating system which can run the latest internet browsers is required and an 
+    android device with android 7.0 os. Data transfer will occur 
+    through API calls between systems as well as external APIs and libraries will be used.
+</p>
+
+<h4>3.4 Communications Interfaces</h4>
+<p>
+    An Internet connection is required at all times for the application to work and update. 
+    All users will use a Gmail account to login in and sign up. 
+    External and internal API calls will occur between the backend and frontend.
+</p>
+
+<h3>4.	System Features</h3>
+
+<h4>4.1 Create Cohorts</h4>
+<h5>4.1.1	Description and Priority</h5>
+<p>The teacher can create cohorts of students and cohorts can be made from existing cohorts. And its priority is high.
+</p>
+<h5>4.1.2	Stimulus/Response Sequences</h5>
+<p>The Teacher clicks on the “Create Cohort” button.</p>
+<ol>
+    <li>Teacher needs to fill in some relevant information and click submit:</li>
+    <ol type="a">
+        <li>name of cohort</li>
+        <li>description of cohort</li>
+        <li>Will this cohort be made from an existing cohort</li>
+        <ol type="i">
+            <li>Select the existing cohort from which this cohort will be made of.</li>
+        </ol>
+    </ol>
+    <li>A list of students will appear from which the teacher will select the students and finally click on the “Open cohort” button to create the cohort.</li>
+</ol>
+
+<h5>4.1.3	Functional Requirements</h5>
+<p>REQ-1:	Must	display the form with relevant sections by clicking the “Create Cohort” button.</p>
+<p>REQ-2:	All information must be properly filled or else don’t allow to process to the next step.</p>
+<p>REQ-3:	Must	display the list of relevant students on clicking submit.</p>
+<p>REQ-3:	At least one student must be selected.</p>
+<p>REQ-4:	Must update the database and store the information upon clicking the “Open cohort” button.</p>
+<p>REQ-5:	Display a pop-up warning that the cohort will not be created when the teacher tries to exit before the process is complete</p>
+
+
+<h4>4.2 Assign reading assignment to cohort</h4>
+<h5>4.2.1	Description and Priority</h5>
+<p>
+    The teacher can assign a reading assignment to the cohort by uploading a single column pdf with no images
+</p>
+
+<h5>4.2.2	Stimulus/Response Sequences</h5>
+<p>
+    The Teacher clicks on the “Create Reading Assignment ” button.
+</p>
+<ol>
+    <li>
+        Teacher needs to fil in some relevant information:
+    </li>
+    <ol type="a">
+        <li>
+            name of the reading assignment 
+        </li>
+        <li>
+            description of the reading assignment 
+        </li>
+        <li>
+            Upload the pdf file.
+        </li>
+        <li>
+            Add a start time and end time
+        </li>
+        <li>
+            Click on the “Create Test” button if they want to assign a test with the assignment.
+        </li>
+        <ol type="i">
+            <li>
+                more detail in section 4.3
+            </li>
+        </ol>
+    </ol>
+    <li>
+        Click on the “Assign ” button to assign the work.
+    </li>
+</ol>
+
+<h5>4.2.3	Functional Requirements</h5>
+<p>REQ-1: Must display the form with relevant sections by clicking the Create Reading Assignment&; button.</p>
+<p>REQ-2: All information must be filled appropriately or else they will not be allowed to process to the next step.</p>
+<p>REQ-3: Uploaded file must be in pdf format with a single column and no images.</p>
+<p>REQ-4: Must update the database and store the information upon clicking Assign&; button.</p>
+<p>REQ-5: Display a pop-up warning that the reading assignment will not be created when the teacher tries to exit before the process is complete</p>
+
+<h4>4.3 Assign comprehension test with reading assignment</h4>
+<h5>4.3.1	Description and Priority</h5>
+<p>The teacher can assign comprehension tests with a reading assignment</p>
+<p>And its priority is high.</p>
+
+<h5>4.3.2	Stimulus/Response Sequences</h5>
+<p>The Teacher clicks on the Create Test button.</p>
+<ol>
+    <li>
+        <p>Teacher needs to fill in some relevant information:</p>
+        <ol>
+            <li>
+                <p>description of the Test (optional)</p>
+            </li>
+            <li>
+                <p>Test duration</p>
+            </li>
+            <li>
+                <p>Click on the Create Questio button:</p>
+                <ol>
+                    <li>
+                        <p>Three buttons appear</p>
+                        <ol>
+                            <li>
+                                <p>Create Mcq</p>
+                                <ol>
+                                    <li>
+                                        <p>On click this button</p>
+                                    </li>
+                                    <li>
+                                        <p>A text box for the question will appear</p>
+                                    </li>
+                                    <li>
+                                        <p>4 text boxes to write the 4 options</p>
+                                        <ol>
+                                            <li>
+                                                <p>Will be selected as the correct answer</p>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <p>Create Text Question</p>
+                                <ol>
+                                    <li>
+                                        <p>On click this button</p>
+                                    </li>
+                                    <li>
+                                        <p>A text box for the question will appear</p>
+                                    </li>
+                                    <li>
+                                        <p>A text box to write the correct answer</p>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <p>Create Audio Question</p>
+                                <ol>
+                                    <li>
+                                        <p>On click this button</p>
+                                    </li>
+                                    <li>
+                                        <p>A text box for the question will appear</p>
+                                    </li>
+                                    <li>
+                                        <p>A text box to write the correct answer</p>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>Upon completion of the previous a Select Paragrap will appear:</p>
+                        <ol>
+                            <li>
+                                <p>A side panel will appear, which will display the pdf content in paragraphs, from them a paragraph will be selected which is related to the question asked.</p>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>Step c will be repeated as many times as the teacher wishes.</p>
+            </li>
+        </ol>
+    </li>
+</ol>
+<p><br></p>
+<ol start="2">
+    <li>
+        <p>Click on the Assign Test button to assign the test.</p>
+    </li>
+</ol>
+
+<h5>4.3.3	Functional Requirements</h5>
+<p>REQ-1: Must display the form with relevant sections by clicking the Create Test button.</p>
+<p>REQ-2: All information must be filled appropriately or else they will not be allowed to process to the next step.</p>
+<p>REQ-3: If the clicks on the Create Questions button do not complete all the steps in C then they will not let to processed if they click on the Assign Test button.</p>
+<p>REQ-4: All the text boxes must be available to edit for the teacher until the Assign Test button is clicked and the same goes for the option to change the selected paragraph.</p>
+<p>REQ-5: Must update the database and store the information upon clicking the Assign Test button.</p>
+<p>REQ-6: Display a pop-up warning that the test will not be created when the teacher tries to exit before the process is complete</p>
+
+
+<h4>4.4 Edit/Delete reading assignment</h4>
+<h5>4.4.1	Description and Priority</h5>
+<p>The teacher can edit or delete the assigned reading assignment</p>
+<p>And its priority is high.</p>
+
+<h5>4.4.2	Stimulus/Response Sequences</h5>
+<p>The Teacher clicks on the Edit Assignment button from the assignment list.</p>
+<ol>
+    <li>
+        <p>The teacher can update relevant information:</p>
+        <ol>
+            <li>
+                <p>change the name of the reading assignment</p>
+            </li>
+            <li>
+                <p>change the description of the reading assignment</p>
+            </li>
+            <li>
+                <p>Upload a new pdf file.</p>
+                <ol>
+                    <li>
+                        <p>if they upload a new pdf file then the comprehension test will be removed and a new test needs to be created.</p>
+                        <ol>
+                            <li>
+                                <p>Steps of section 4.3 will be followed</p>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>to change the start time and end time</p>
+            </li>
+        </ol>
+    </li>
+    <li>
+        <p>Click on the Update button to update information.</p>
+    </li>
+    <li>
+        <p>The teacher can also click on the delete button to delete the reading assignment.</p>
+    </li>
+</ol>
+<h5>4.4.3	Functional Requirements</h5>
+<p>REQ-1: Must display the form with relevant sections by clicking the Edit Assignment button.</p>
+<p>REQ-2: All information must be filled appropriately or else they will not be allowed to process to the next step.</p>
+<p>REQ-3: If a new pdf is uploaded, the related test, if available, must be deleted. And the create test button must appear.</p>
+<p>REQ-4: Must update the database and store the information upon clicking the Update or delete button.</p>
+<p>REQ-5: Display a pop-up warning that the changes will not be saved when the teacher tries to exit before the process is complete</p>
+
+
+<h4>4.5 Edit comprehension test</h4>
+<h5>4.5.1	Description and Priority</h5>
+<p>The teacher can edit the assigned comprehension test</p>
+<p>And its priority is high.</p>
+
+<h5>4.5.2	Stimulus/Response Sequences</h5>
+<p>The Teacher clicks on the Edit Test button.</p>
+<ol>
+    <li>
+        <p>Teacher can update some relevant information:</p>
+        <ol>
+            <li>
+                <p>description of the Test (optional)</p>
+            </li>
+            <li>
+                <p>Test duration</p>
+            </li>
+            <li>
+                <p>Click on the edit Question button:</p>
+                <ol>
+                    <li>
+                        <p>A panel containing a question and answer will be displayed</p>
+                    </li>
+                    <li>
+                        <p>The teacher can edit both questions and answer</p>
+                    </li>
+                    <li>
+                        <p>A Select Paragraph will appear which the teacher can click to change which paragraph the question is associated with.</p>
+                    </li>
+                    <li>
+                        <p>The teacher will click on the right arrow button to go to the next question.</p>
+                    </li>
+                    <li>
+                        <p>Below is a text that will show how many questions are left.</p>
+                    </li>
+                    <li>
+                        <p>When the Teacher is finished with questions, a confirmation screen will appear with an update button.</p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>Upon clicking the update button, the Teacher will return to the assignment list.</p>
+            </li>
+            <li>
+                <p>Can click on the delete button to delete the test</p>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<h5>4.5.3	Functional Requirements</h5>
+<p>REQ-1: Must display the form with relevant sections by clicking the Edit Test button.</p>
+<p>REQ-2: All information must be filled appropriately or else they will not be allowed to process to the next step.</p>
+<p>REQ-3: All the text boxes must be available to edit for the teacher and the option to change the selected paragraph.</p>
+<p>REQ-4: Must update the database and store the information upon clicking the Update Test or delete button.</p>
+<p>REQ-5: Display a pop-up warning that the test will not be updated when the teacher tries to exit before the process is complete</p>
+
+
+<h4>4.6 View Report of a student and cohort</h4>
+<h5>4.6.1	Description and Priority</h5>
+<p>The teacher can View Report of a student and cohort, on which part they focused more and questions from which paragraphs were they able to answer.</p>
+<p>And its priority is high.</p>
+
+<h5>4.6.2	Stimulus/Response Sequences</h5>
+<p>At this point we consider the students have completed the assignment and test</p>
+<p>The teacher clicks on the reading assignment</p>
+<p>The Teacher clicks on the View Report button.</p>
+<p>The teacher will be able to see the report of the reading assignment.</p>
+<p>The teacher will see a table containing the students names along with their focus score on each paragraph and which questions they answered correctly. This information will be displayed on a cohort level as well. The data will also be visualized using histograms.</p>
+
+<h5>4.6.3	Functional Requirements</h5>
+<p>REQ-1: Must display a table containing the student name along with their focus score on each paragraph and which questions they answered correctly</p>
+<p>REQ-2: This information will be displayed on a cohort level as well.</p>
+<p>REQ-3: The data will also be visualized using histograms.</p>
+
+
+<h4>4.7 Complete the reading assignment</h4>
+<h5>4.7.1	Description and Priority</h5>
+<p>The students can complete the reading assignment within the start and end time.</p>
+<p>And its priority is high.</p>
+
+<h5>4.7.2	Stimulus/Response Sequences</h5>
+<p>The student will click on the Complete assignment button from the assignment list.</p>
+<ol>
+    <li>
+        <p>A panel containing a paragraph will appear and the students webcam will open.</p>
+    </li>
+    <li>
+        <p>The student will click on the right arrow button to go to the next paragraph.</p>
+    </li>
+    <li>
+        <p>The below text will show how many paragraphs are left.</p>
+    </li>
+    <li>
+        <p>When the student is finished with the paragraphs, upon clicking the right arrow button a start test button will appear if the teacher assigned a test.</p>
+    </li>
+    <li>
+        <p>The Student can start the test by clicking the start button or come back later to give the test.</p>
+        <ol>
+            <li>
+                <p>more detail in section 4.8</p>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<h5>4.7.3	Functional Requirements</h5>
+<p>REQ-1: Students&apos; webcam must be open and students must be visible during completing the assignment. If they are not visible or the webcam is not working the student will be notified via a pop-up and will not allow continuing until the issue is resolved.</p>
+<p>REQ-2: The duration of time spent on each paragraph must be tracked.</p>
+<p>REQ-3: If the student leaves partway through the assignment, the information collected until that point will be stored and continued from that point upon return.</p>
+<p>REQ-4: The student can move back and forth between paragraphs.</p>
+<p>REQ-5: The student can not participate in the assignment after the end time has passed.</p>
+
+
+<h4>4.8 Complete the comprehension test if given with the reading assignment</h4>
+<h5>4.8.1	Description and Priority</h5>
+<p>The students can complete the comprehension test if given with the reading assignment.</p>
+<p>And its priority is high.</p>
+
+<h5>4.8.2	Stimulus/Response Sequences</h5>
+<p>Assuming the student has read through the content provided.</p>
+<p>The student will click on the &ldquo;start&rdquo; button.</p>
+<ol>
+    <li>
+        <p>A panel containing a question will appear and students&apos; webcam will be open.</p>
+    </li>
+    <li>
+        <p>The student will answer the question if s/he can.</p>
+    </li>
+    <li>
+        <p>If it is an audio question, the student&rsquo;s microphone will open upon clicking the microphone button. The student will have one minute to answer the question.</p>
+    </li>
+    <li>
+        <p>The student will click on the right arrow button to go to the next question.</p>
+    </li>
+    <li>
+        <p>A below text will show how many questions are left.</p>
+    </li>
+    <li>
+        <p>When the student is finished with questions confirmation screen will appear with an exit button.</p>
+    </li>
+    <li>
+        <p>Upon clicking the exit button, the student will return to the assignment list.</p>
+    </li>
+</ol>
+
+<h5>4.8.3	Functional Requirements</h5>
+<p>REQ-1: Students&apos; webcam must be open and students must be visible during completing the assignment. If they are not visible or the webcam is not working the student will be notified via a pop-up and will not be allowed to continue until the issue is resolved. </p>
+<p>REQ-2: The student must complete the test within the duration of time given by the teacher.</p>
+<p>REQ-3: If the student leaves partway through the test, the information collected until that point will be stored and will be considered as completion of the test. </p>
+<p>REQ-4: The student can move back and forth between questions.</p>
+
+
+
+<h3>5.	Other Nonfunctional Requirements</h3>
+<h4>5.1 Performance Requirements</h4>
+<p>Grasp should run on a desktop or laptop with at least a 1.3 gigahertz CPU and 2 gigabytes of RAM and the latest web browsers and the companion android application should run on an android device with android 7.0 os support.</p>
+
+<h4>5.2 Safety Requirements</h4>
+<p>While the duration of the time the student participates in the reading assignment, the student must sit up straight facing the webcam, with their chest and face parallel to the webcam and fully in the frame of the webcam. (Check reference)</p>
+
+<h4>5.3 Security Requirements</h4>
+<p>Students must not be able to create cohorts, assign reading assignments or optional tests, and neither view reports.</p>
+<p>Teachers can not participate in reading assignments or optional tests.</p>
+
+<h4>5.4 Software Quality Attributes</h4>
+<p>Will have a high degree of availability as it will be able all time with occasional downtime for maintenance purposes. Will have high usability, as it is designed to make teachers&apos; work easier so the step to complete any task will be simple and easy, thus the focus is the ease of use.</p>
+
+<h4>5.5 Business Rules</h4>
+<p>Teachers can create cohorts, create/edit/delete reading assignments and tests but can not participate, and can view reports.</p>
+<p>Students can only complete assignments.</p>
+</div>
+  </body>
+</html>
