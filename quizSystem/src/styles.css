@@ -1,0 +1,15 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.button {
+  color: black;
+  border-color: black;
+}
+
+.button:hover {
+  background-color: lightgray;
+  border-color: black;
+  border-radius: 5%;
+}
