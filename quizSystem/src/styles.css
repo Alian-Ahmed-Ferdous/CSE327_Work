@@ -3,6 +3,32 @@
   text-align: center;
 }
 
+.full-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page {
+  flex-basis: 100%;
+  justify-content: center;
+  align-items: center;
+  transition: margin-left 1s;
+}
+
+.page-with-select {
+  flex: 1 1 200px;
+  height: 50px;
+}
+
+.select {
+  flex: 1 1 200px;
+  height: 50px;
+}
+
+.disabled {
+  opacity: 0;
+}
+
 .button {
   color: black;
   border-color: black;
