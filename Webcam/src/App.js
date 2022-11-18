@@ -5,7 +5,7 @@ function App() {
   let videoRef = useRef(null);
   let photoRef = useRef(null);
 
-  const { hasPhoto, setHasPhoto } = useState(false);
+  const [hasPhoto, setHasPhoto] = useState(false);
 
   const getVideo = () => {
     navigator.mediaDevices
@@ -23,11 +23,11 @@ function App() {
   };
 
   const takePicture = () => {
-    const width = 600;
-    const height = 600;
+    console.log("working");
+    const width = 300;
+    const height = 300;
 
     let video = videoRef.current;
-
     let photo = photoRef.current;
 
     photo.width = width;
@@ -36,15 +36,21 @@ function App() {
 
     let ctx = photo.getContext("2d");
 
+    console.log("working still");
     ctx.drawImage(video, 0, 0, width, height);
+    var d = photo.toDataURL("image/png");
+    const w = window.open("about:blank", "image from canvas");
+    w.document.write("<img src='" + d + "' alt='from canvas'/>");
+    console.log("Saved!");
+    setHasPhoto(true);
   };
 
   const clearImage = () => {
     let photo = photoRef.current;
-
+    console.log(photo);
     let ctx = photo.getContext("2d");
-
     ctx.clearRect(0, 0, photo.width, photo.height);
+    setHasPhoto(false);
   };
 
   useEffect(() => {
@@ -57,7 +63,7 @@ function App() {
         <video ref={videoRef}></video>
         <button onClick={takePicture}>Snap!</button>
       </div>
-      <div className={'image ' + (hasPhoto ? 'hasPhoto' : '')}>
+      <div className={"image " + (hasPhoto ? "hasPhoto" : "")}>
         <canvas ref={photoRef}></canvas>
         <button onClick={clearImage}>Remove!</button>
       </div>
