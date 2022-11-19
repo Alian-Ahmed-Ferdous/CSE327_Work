@@ -1,5 +1,6 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { i } from "@fortawesome/fontawesome-free";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
@@ -27,7 +28,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <button onClick={login}>
-          <i class="fa-brands fa-google"></i>
+          <i className="fa-brands fa-google"></i>
           Continue with google
         </button>
         <GoogleLogin
