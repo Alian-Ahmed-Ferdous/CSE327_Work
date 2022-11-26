@@ -8,13 +8,13 @@ use App\Http\Requests\UpdateCohortRequest;
 
 class CohortController extends Controller
 {
-    public function store(StoreCohortRequest $request)
+    public function store(StoreCohortRequest $cohort)
     {
         $result = Cohort::insert([
-            'name' => $request->name,
-            'description' => $request->description,
-            'subCohortOf' => $request->subCohortId,
-            'teacherId' => $request->teacherId
+            'name' => $cohort->name,
+            'description' => $cohort->description,
+            'subCohortOf' => $cohort->subCohortId,
+            'teacherId' => $cohort->teacherId
         ]);
         if($result==true){
             return "successfully stored";
@@ -30,16 +30,23 @@ class CohortController extends Controller
      * @param  \App\Models\Cohort  $cohort
      * @return \Illuminate\Http\Response
      */
-    public function show(Cohort $cohort)
+    public function show($teacherId)
     {
-        $cohort = Cohort::all();
-        return $cohort;
+        $result = Cohort::where('teacherId', '=',$teacherId)
+        ->where('subCohortId', '=', 0)
+        ->get();
+        return response()->json([
+                'status' => 200,
+                'cohort' => $result,
+        ]);
     }
 
-    public function index(Cohort $cohort)
+    public function index($teacherId)
     {
-        $id = $cohort->input('teacherId');
-        $cohort = Cohort::where('teacherId',$id )->get();
-        return $cohort;
+        $result = Cohort::where('teacherId', '=',$teacherId)->get();
+        return response()->json([
+                'status' => 200,
+                'cohort' => $result,
+        ]);
     }
 }

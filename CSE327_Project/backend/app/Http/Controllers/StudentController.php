@@ -37,6 +37,9 @@ class StudentController extends Controller
     public function show(Request $request){
         
         $result = Student::all();
-        return $result;
+        return response()->json([
+            'status' => 200,
+            'student' => $result,
+    ]);
     }
 }

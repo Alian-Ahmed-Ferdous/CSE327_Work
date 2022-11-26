@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\taughtinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,8 @@ Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);
 
 Route::post('/cohorts',[CohortController::class,'store']);
-Route::get('/cohorts',[CohortController::class,'show']);
+Route::get('/cohorts/{teacherId}',[CohortController::class,'index']);
+Route::get('/cohortsCreate/{teacherId}',[CohortController::class,'show']);
+
+Route::get('/taughtIn/{teacherId}',[taughtinController::class,'show']);
 
