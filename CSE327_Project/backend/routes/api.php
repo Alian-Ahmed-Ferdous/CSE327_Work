@@ -32,5 +32,5 @@ Route::post('/cohorts',[CohortController::class,'store']);
 Route::get('/cohorts/{teacherId}',[CohortController::class,'index']);
 Route::get('/cohortsCreate/{teacherId}',[CohortController::class,'show']);
 
-Route::get('/taughtIn/{teacherId}',[taughtinController::class,'show']);
+Route::get('/taughtIn/{cohortId}',[taughtinController::class,'index']);
 
