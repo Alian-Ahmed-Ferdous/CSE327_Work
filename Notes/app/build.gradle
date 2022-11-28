@@ -1,30 +1,16 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'kotlin-android-extensions'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-
-    // other configuration (buildTypes, defaultConfig, etc.)
-
-    packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    namespace 'com.example.notes'
-    compileSdk 32
+    compileSdkVersion 32
+    buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.example.notes"
-        minSdk 21
-        targetSdk 32
+        applicationId "com.example.notesapp"
+        minSdkVersion 16
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -37,12 +23,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
     }
 }
 

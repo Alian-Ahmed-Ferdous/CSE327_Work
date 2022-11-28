@@ -3,6 +3,7 @@ package com.example.newsapp
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Adapter
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
     }
 
     private fun fetchData() {
-        val url = "https://newsapi.org/v2/top-headlines?country=in&category=science&piKey=1f4a12d2698e432ea9cf18126dcc7acd"
+        val url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=7c420935f77147cd990777e29c440a78"
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
             url,

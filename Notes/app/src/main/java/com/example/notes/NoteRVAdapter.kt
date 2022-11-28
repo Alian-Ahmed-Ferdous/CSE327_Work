@@ -1,6 +1,7 @@
 package com.example.notes
 
 import android.content.Context
+import android.os.Build.VERSION_CODES.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 class NoteRVAdapter(private val  context: Context, private val listener: INoteRVAdapter): RecyclerView.Adapter<NoteRVAdapter.NoteViewHolder>() {
     private val  allNotes = ArrayList<Note>()
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val textView: TextView = itemView.findViewById(R.id.text)
-        val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
+        val textView: TextView = itemView.findViewById(R
+        val deleteButton: ImageView = itemView.findViewById(R..deleteButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {

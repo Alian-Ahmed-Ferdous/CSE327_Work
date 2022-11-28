@@ -1,5 +1,7 @@
 package com.example.notes
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.lifecycle.LiveData
 
 class NoteRepository(private val noteDao: NoteDao) {
