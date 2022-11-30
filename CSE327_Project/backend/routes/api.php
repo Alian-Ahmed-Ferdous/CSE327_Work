@@ -29,8 +29,12 @@ Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);
 
 Route::post('/cohorts',[CohortController::class,'store']);
-Route::get('/cohorts/{teacherId}',[CohortController::class,'index']);
-Route::get('/cohortsCreate/{teacherId}',[CohortController::class,'show']);
+Route::post('/cohortsUpdate/{id}',[CohortController::class,'update']);
+Route::get('/cohorts/{teacherId}',[CohortController::class,'ByTeacherId']);
+Route::get('/cohortsCreate/{teacherId}',[CohortController::class,'nonSubCohort']);
+Route::get('/cohortId/{cohortId}',[CohortController::class,'showCohortById']);
+Route::get('/cohortId',[CohortController::class,'latestCohortId']);
 
+Route::post('/taughtIn/{studentId}',[taughtinController::class,'add']);
 Route::get('/taughtIn/{cohortId}',[taughtinController::class,'index']);
 

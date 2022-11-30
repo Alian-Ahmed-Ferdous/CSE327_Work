@@ -8,11 +8,23 @@ use Illuminate\Http\Request;
 
 class taughtinController extends Controller
 {
-    public function index($cohortId){
+    public function index($cohortId)
+    {
         $result = taughtIn::where('cohortId','=',$cohortId)->get();
-        return response()->json([
-            'status' => 200,
-            'taughtIn' => $result,
-    ]);
+        return $result;
+    }
+
+    public function add(Request $request, $studentId)
+    {
+        $result = taughtIn::insert([
+            'studentId' => $studentId,
+            'cohortId' => $request->cohortId
+        ]);
+        if($result==true){
+            return "successfully stored";
+        }
+        else{
+            return "failed stored";
+        }
     }
 }

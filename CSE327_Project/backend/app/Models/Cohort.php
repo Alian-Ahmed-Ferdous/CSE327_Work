@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Cohort extends Model
 {
     use HasFactory;
+    protected  $primaryKey = 'cohortId';
     protected $guarded = [];
 }
