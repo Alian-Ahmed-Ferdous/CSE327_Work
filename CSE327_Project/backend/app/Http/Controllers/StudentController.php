@@ -42,4 +42,10 @@ class StudentController extends Controller
             'student' => $result,
     ]);
     }
+
+    public function new(Request $request){
+        
+        $result = Student::all()->sortByDesc('studentId')->first();
+        return $result;
+    }
 }

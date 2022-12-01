@@ -14,6 +14,12 @@ class taughtinController extends Controller
         return $result;
     }
 
+    public function studentIndex($student)
+    {
+        $result = taughtIn::where('studentId','=',$student)->get();
+        return $result;
+    }
+
     public function add(Request $request, $studentId)
     {
         $result = taughtIn::insert([

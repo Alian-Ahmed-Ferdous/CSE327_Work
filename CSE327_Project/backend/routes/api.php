@@ -6,6 +6,7 @@ use App\Http\Controllers\CohortController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\taughtinController;
+use App\Http\Controllers\AssignmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/teachers',[TeacherController::class,'store']);
 Route::get('/teachers',[TeacherController::class,'show']);
 
+Route::post('/assignments',[AssignmentController::class,'store']);
+Route::get('/assignments/{cohortId}',[AssignmentController::class,'show']);
+
 Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);
+Route::get('/newStudents',[StudentController::class,'new']);
 
 Route::post('/cohorts',[CohortController::class,'store']);
 Route::post('/cohortsUpdate/{id}',[CohortController::class,'update']);
@@ -37,4 +42,4 @@ Route::get('/cohortId',[CohortController::class,'latestCohortId']);
 
 Route::post('/taughtIn/{studentId}',[taughtinController::class,'add']);
 Route::get('/taughtIn/{cohortId}',[taughtinController::class,'index']);
-
+Route::get('/studentTaughtIn/{studentId}',[taughtinController::class,'studentIndex']);
