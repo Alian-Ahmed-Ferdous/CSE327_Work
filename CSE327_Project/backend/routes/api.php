@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\CohortController;
+use App\Http\Controllers\PdfPartController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\taughtinController;
@@ -28,6 +30,12 @@ Route::get('/teachers',[TeacherController::class,'show']);
 
 Route::post('/assignments',[AssignmentController::class,'store']);
 Route::get('/assignments/{cohortId}',[AssignmentController::class,'show']);
+
+Route::post('/pdfPart',[PdfPartController::class,'store']);
+Route::get('/pdfPart/{assignmentId}',[PdfPartController::class,'show']);
+
+Route::post('/Quiz',[QuizController::class,'store']);
+Route::get('/Quiz/{assignmentId}',[QuizController::class,'show']);
 
 Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);

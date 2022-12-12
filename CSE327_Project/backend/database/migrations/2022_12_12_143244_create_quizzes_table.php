@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('quizzes', function (Blueprint $table) {
+            $table->id("quizId");
             $table->string('name', 100);
             $table->text('description')->nullable();
-            $table->increments('assignmentId');
-            $table->integer('cohortId');
+            $table->integer('assignmentId');
             $table->dateTime('startTime');
             $table->dateTime('endTime');
             $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('quizzes');
     }
 };

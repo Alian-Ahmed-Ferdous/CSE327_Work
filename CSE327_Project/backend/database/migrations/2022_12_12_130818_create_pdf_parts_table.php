@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
-            $table->string('name', 100);
-            $table->text('description')->nullable();
-            $table->increments('assignmentId');
-            $table->integer('cohortId');
-            $table->dateTime('startTime');
-            $table->dateTime('endTime');
+        Schema::create('pdf_parts', function (Blueprint $table) {
+            $table->id("partId");
+            $table->integer('assignmentId');
+            $table->string('part',2500);
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('pdf_parts');
     }
 };

@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assignment;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreAssignmentRequest;
-use App\Http\Requests\UpdateAssignmentRequest;
 
-class AssignmentController extends Controller
+class QuizController extends Controller
 {
     public function store(Request $request)
     {
-        $assignment = Assignment::create([
+        $assignment = Quiz::create([
             'name' => $request->name,
             'description' => $request->description,
-            'cohortId' => $request->cohortId,
+            'assignmentId' => $request->assignmentId,
             'startTime' => $request->startTime,
             'endTime' => $request->endTime
         ]);
         return response()->json([
             'status' => 200,
-            'assignmentId' => $assignment->assignmentId,
         ]);
     }
 
-    public function show($cohortId){
+    public function show($assignmentId){
         
-        $result = Assignment::where("cohortId", "=", $cohortId)->get();
+        $result = Quiz::where("assignmentId", "=", $assignmentId)->get();
         return $result;
     }
 }
