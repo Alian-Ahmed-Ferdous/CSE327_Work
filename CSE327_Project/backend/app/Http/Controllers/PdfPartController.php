@@ -31,7 +31,10 @@ class PdfPartController extends Controller
 
     public function show($assignmentId){
         
-        $result = pdfPart::where("assignmentId", "=", $assignmentId)->get();
-        return $result;
+        $result = pdfPart::select('part')->where("assignmentId", "=", $assignmentId)->get();
+        return response()->json([
+            'status' => 200,
+            'pdfPart' => $result
+        ]);
     }
 }

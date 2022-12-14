@@ -18,6 +18,7 @@ class QuizController extends Controller
         ]);
         return response()->json([
             'status' => 200,
+            'assignmentId' => $assignment->assignmentId,
         ]);
     }
 
