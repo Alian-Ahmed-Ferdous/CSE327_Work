@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('Answer');
             $table->integer('assignmentId');
             $table->integer('partId');
+            $table->timestamps();
         });
     }
 

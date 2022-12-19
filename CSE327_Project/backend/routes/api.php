@@ -9,6 +9,9 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\taughtinController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\McqQuestionController;
+use App\Http\Controllers\TextQuestionController;
+use App\Http\Controllers\AudioQuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +33,19 @@ Route::get('/teachers',[TeacherController::class,'show']);
 
 Route::post('/assignments',[AssignmentController::class,'store']);
 Route::get('/assignments/{cohortId}',[AssignmentController::class,'show']);
+Route::get('/assignmentsCohortId/{assignmentId}',[AssignmentController::class,'getCohortId']);
 
 Route::post('/pdfPart',[PdfPartController::class,'store']);
 Route::get('/pdfPart/{assignmentId}',[PdfPartController::class,'show']);
 
 Route::post('/Quiz',[QuizController::class,'store']);
 Route::get('/Quiz/{assignmentId}',[QuizController::class,'show']);
+
+Route::post('/textQuestion',[TextQuestionController::class,'store']);
+
+Route::post('/audioQuestion',[AudioQuestionController::class,'store']);
+
+Route::post('/mcqQuestion',[McqQuestionController::class,'store']);
 
 Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);
@@ -47,6 +57,7 @@ Route::get('/cohorts/{teacherId}',[CohortController::class,'ByTeacherId']);
 Route::get('/cohortsCreate/{teacherId}',[CohortController::class,'nonSubCohort']);
 Route::get('/cohortId/{cohortId}',[CohortController::class,'showCohortById']);
 Route::get('/cohortId',[CohortController::class,'latestCohortId']);
+Route::get('/cohortsTeacher/{cohortId}',[CohortController::class,'getTeacherId']);
 
 Route::post('/taughtIn/{studentId}',[taughtinController::class,'add']);
 Route::get('/taughtIn/{cohortId}',[taughtinController::class,'index']);
