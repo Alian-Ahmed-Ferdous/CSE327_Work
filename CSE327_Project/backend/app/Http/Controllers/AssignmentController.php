@@ -29,4 +29,12 @@ class AssignmentController extends Controller
         $result = Assignment::where("cohortId", "=", $cohortId)->get();
         return $result;
     }
+
+    public function getCohortId($assignmentId){
+        $result = Assignment::select('cohortId')->where("assignmentId", "=", $assignmentId)->get();
+        return response()->json([
+            'status' => 200,
+            'cohortId' => $result,
+    ]);
+    }
 }

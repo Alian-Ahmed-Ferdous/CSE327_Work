@@ -75,4 +75,13 @@ public function latestCohortId()
     $result = Cohort::all()->sortByDesc('cohortId')->first();
     return $result;
 }
+
+public function getTeacherId($cohortId)
+    {
+        $result = Cohort::select('teacherId')->where('cohortId', '=',$cohortId)->get();
+        return response()->json([
+                'status' => 200,
+                'teacherId' => $result,
+        ]);
+    }
 }

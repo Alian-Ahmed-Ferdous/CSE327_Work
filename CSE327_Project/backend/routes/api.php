@@ -47,6 +47,11 @@ Route::post('/audioQuestion',[AudioQuestionController::class,'store']);
 
 Route::post('/mcqQuestion',[McqQuestionController::class,'store']);
 
+Route::post('/Answer',[McqQuestionController::class,'store']);
+Route::get('/Answers',[QuizController::class,'show']);
+Route::post('/Monitor',[McqQuestionController::class,'store']);
+Route::get('/Report',[QuizController::class,'show']);
+
 Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);
 Route::get('/newStudents',[StudentController::class,'new']);
