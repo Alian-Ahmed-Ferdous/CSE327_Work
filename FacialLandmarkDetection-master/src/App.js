@@ -10,7 +10,6 @@
 // Face Mesh - https://github.com/tensorflow/tfjs-models/tree/master/facemesh
 
 import React, { useRef, useEffect } from "react";
-import "./App.css";
 import * as tf from "@tensorflow/tfjs";
 // OLD MODEL
 //import * as facemesh from "@tensorflow-models/facemesh";
