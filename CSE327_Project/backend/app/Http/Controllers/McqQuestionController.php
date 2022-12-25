@@ -40,4 +40,10 @@ class McqQuestionController extends Controller
             'status' => 200,
         ]);
     }
+
+    public function show($assignmentId){
+        
+        $result = mcqQuestion::where("assignmentId", "=", $assignmentId)->get();
+        return $result;
+    }
 }

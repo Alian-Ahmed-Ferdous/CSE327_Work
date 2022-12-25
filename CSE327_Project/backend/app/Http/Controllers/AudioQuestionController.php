@@ -32,4 +32,10 @@ class AudioQuestionController extends Controller
             'status' => 200,
         ]);
     }
+
+    public function show($assignmentId){
+        
+        $result = audioQuestion::where("assignmentId", "=", $assignmentId)->get();
+        return $result;
+    }
 }

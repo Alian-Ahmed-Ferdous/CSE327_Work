@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\focusScore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
@@ -9,9 +10,11 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\taughtinController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\FocusScoreController;
 use App\Http\Controllers\McqQuestionController;
 use App\Http\Controllers\TextQuestionController;
 use App\Http\Controllers\AudioQuestionController;
+use App\Http\Controllers\QuestionMarksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,15 +45,20 @@ Route::post('/Quiz',[QuizController::class,'store']);
 Route::get('/Quiz/{assignmentId}',[QuizController::class,'show']);
 
 Route::post('/textQuestion',[TextQuestionController::class,'store']);
+Route::get('/textQuestion/{assignmentId}',[TextQuestionController::class,'show']);
 
 Route::post('/audioQuestion',[AudioQuestionController::class,'store']);
+Route::get('/audioQuestion/{assignmentId}',[AudioQuestionController::class,'show']);
 
 Route::post('/mcqQuestion',[McqQuestionController::class,'store']);
+Route::get('/mcqQuestion/{assignmentId}',[McqQuestionController::class,'show']);
 
-Route::post('/Answer',[McqQuestionController::class,'store']);
-Route::get('/Answers',[QuizController::class,'show']);
-Route::post('/Monitor',[McqQuestionController::class,'store']);
-Route::get('/Report',[QuizController::class,'show']);
+Route::post('/focusScore',[FocusScoreController::class,'store']);
+Route::get('/focusScore/{assignmentId}',[FocusScoreController::class,'show']);
+Route::get('/focusScore/{assignmentId}/{studentId}',[FocusScoreController::class,'showAll']);
+
+Route::post('/QuestionMarks',[QuestionMarksController::class,'store']);
+Route::get('/QuestionMarks/{assignmentId}/{studentId}',[QuestionMarksController::class,'show']);
 
 Route::post('/students',[StudentController::class,'store']);
 Route::get('/students',[StudentController::class,'show']);

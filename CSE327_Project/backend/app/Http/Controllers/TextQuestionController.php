@@ -32,4 +32,10 @@ class TextQuestionController extends Controller
             'status' => 200,
         ]);
     }
+
+    public function show($assignmentId){
+        
+        $result = textQuestion::where("assignmentId", "=", $assignmentId)->get();
+        return $result;
+    }
 }
